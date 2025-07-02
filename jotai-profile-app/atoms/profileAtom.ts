@@ -8,7 +8,7 @@ export type Profile = {
   comment: string;
 };
 
-// ❓ 問1-2: プロファイル状態を型付きで定義しよう
+// ❓ 問1-2: プロフィール状態を型付きで定義しよう
 export const profileAtom = ___<Profile>({
   name: '',
   nickname: '',
