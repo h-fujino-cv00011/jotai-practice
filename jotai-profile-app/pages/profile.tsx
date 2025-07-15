@@ -1,11 +1,20 @@
 import { useAtom } from 'jotai';
 // ❓ 問3-1: profileAtom を import
-import { ____ } from '../atoms/profileAtom';
+import { ____ } from '../atoms/profile';
 import Link from 'next/link';
 
 export default function ProfilePage() {
   // ❓ 問3-2: jotai の状態を読み取ろう
-  const [profile] = ____;
+  const [profile] = ___(___);
+
+  if (!profile.name) {
+    return (
+      <div style={{ padding: 20 }}>
+        <p>プロフィールが設定されていません。</p>
+        <Link href="/">← プロフィールを作成する</Link>
+      </div>
+    );
+  }
 
   return (
     <div style={{ padding: 20 }}>

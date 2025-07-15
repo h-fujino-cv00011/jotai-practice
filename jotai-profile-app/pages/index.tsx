@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai';
 
  // ❓ 問2-1: Profile型を import
-import { profileAtom, ___ } from '../atoms/profileAtom';
+import { profileAtom, ___ } from '../atoms/profile';
 import Link from 'next/link';
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
 
   const handleChange = (field: keyof Profile) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     // ❓ 問2-3: 対象フィールドを動的に更新
-    setProfile({ ...profile, [___]: e.target.value });
+    setProfile(prev => ({ ...prev, [___]: e.target.value }));
   };
 
   return (
