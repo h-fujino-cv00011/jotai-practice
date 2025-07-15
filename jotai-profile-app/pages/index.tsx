@@ -13,18 +13,51 @@ export default function Home() {
     setProfile(prev => ({ ...prev, [___]: e.target.value }));
   };
 
+  const inputStyle = {
+    width: '100%',
+    maxWidth: '400px',
+    padding: '8px',
+    margin: '8px 0',
+    fontSize: '16px',
+    border: '1px solid #ddd',
+    borderRadius: '4px',
+  };
+  
   return (
-    <div style={{ padding: 20 }}>
+    <div style={{ padding: 20, maxWidth: '600px' }}>
       <h1>プロフィール作成</h1>
-      <input placeholder="名前" value={profile.name} onChange={handleChange('name')} />
-      <br />
-      <input placeholder="ニックネーム" value={profile.nickname} onChange={handleChange('nickname')} />
-      <br />
-      <input placeholder="好きなこと" value={profile.hobby} onChange={handleChange('hobby')} />
-      <br />
-      <textarea placeholder="一言コメント" value={profile.comment} onChange={handleChange('comment')} />
-      <br /><br />
-      <Link href="/profile">プロフィールを確認する →</Link>
+      <div>
+        <input 
+          style={inputStyle}
+          placeholder="名前" 
+          value={profile.name} 
+          onChange={handleChange('name')} 
+        />
+        <input 
+          style={inputStyle}
+          placeholder="ニックネーム" 
+          value={profile.nickname} 
+          onChange={handleChange('nickname')} 
+        />
+        <input 
+          style={inputStyle}
+          placeholder="好きなこと" 
+          value={profile.hobby} 
+          onChange={handleChange('hobby')} 
+        />
+        <textarea 
+          style={{...inputStyle, height: '80px', resize: 'vertical'}}
+          placeholder="一言コメント" 
+          value={profile.comment} 
+          onChange={handleChange('comment')} 
+        />
+        <br />
+        <Link href="/profile">
+          <button style={{ padding: '12px 24px', fontSize: '16px' }}>
+            プロフィールを確認する →
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }
